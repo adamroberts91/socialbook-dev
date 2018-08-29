@@ -1,8 +1,10 @@
 $(document).ready(function() {
 
-    $('#search_text_input').focus(() => {
+    $('#search_text_input').focus(function() {
         if(window.matchMedia( "(min-width: 800px)" ).matches) {
-            $(this).animate({width: '250px'}, 500);
+            $(this).animate({
+                width: 250
+        	}, 'slow')
         }
     });
 
@@ -29,6 +31,22 @@ $(document).ready(function() {
 	});
 
 
+});
+
+$(document).click((e) => {
+	if(e.target.class != "search_results" && e.target.id != "search_text_input") {
+        $('.search_results_footer').toggleClass("search_results_footer_empty").html("").toggleClass("search_results_footer");
+        $('.search_results').html("");
+		$('#search_text_input').val("");
+	}
+
+    if(e.target.class != "dropdown_data_window") {
+        $('.dropdown_data_window').html("");
+        $('.dropdown_data_window').css({
+			"padding": "0px",
+			"height": "0px"
+		});
+    }
 });
 
 
@@ -85,7 +103,7 @@ function getLiveSearchUsers(value, user) {
 		$('.search_results').html(data);
 		$('.search_results_footer').html("<a href='search.php?q=" + value + "'>See all results</a>");
 
-		if(data = "") {
+		if(data == "") {
             $('.search_results_footer').html("");
             $('.search_results_footer').toggleClass("search_results_footer_empty");
             $('.search_results_footer').toggleClass("search_results_footer");
