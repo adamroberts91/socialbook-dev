@@ -82,9 +82,10 @@ nav a:hover {
 }
 
 .user_details {
-	width: 250px;
+	width: 350px;
 	float: left;
 	margin-bottom: 20px;
+	margin-left: 40px;
 }
 
 .user_details img {
@@ -587,6 +588,13 @@ textarea:focus {
 
 .settings_h4 {
 	margin-bottom: 20px;
+}
+
+.postedImage img {
+	max-height: 300px;
+	max-width: 100%;
+	display: block;
+	margin: 5px auto;
 }
 
 
